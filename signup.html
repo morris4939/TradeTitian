@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account - TradeTitian</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="form-styles.css"/> <!-- New CSS file for design -->
+  <script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '61575416726892', // Replace with your Facebook App ID
+        cookie: true,
+        xfbml: true,
+        version: 'v12.0'
+      });
+    };
+
+    function facebookLogin() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          FB.api('/me', { fields: 'name,email' }, function(userInfo) {
+            alert(`Welcome ${userInfo.name}, your email is ${userInfo.email}`);
+            // You can send userInfo to your server for further processing
+          });
+        } else {
+          alert('User cancelled login or did not fully authorize.');
+        }
+      }, { scope: 'email' });
+    }
+
+    function validateForm(event) {
+      const password = document.querySelector('input[placeholder="Password"]').value;
+      const confirmPassword = document.querySelector('input[placeholder="Confirm Password"]').value;
+      if (password !== confirmPassword) {
+        event.preventDefault();
+        alert("Passwords do not match!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="c:\Users\HP\Downloads\Red Modern Bull Head Logo.png" alt="TradeTitian Logo" style="height: 50px;"/> <!-- Added logo -->
+      TradeTitian
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>Create an Account</h2>
+    <form action="dashboard.html" method="GET" onsubmit="validateForm(event)">
+      <input type="text" placeholder="Full Name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed"/>
+      <input type="email" placeholder="Email" required/>
+      <input type="password" placeholder="Password" required minlength="8" title="Password must be at least 8 characters"/>
+      <input type="password" placeholder="Confirm Password" required/>
+      <select name="account-type" required>
+        <option value="" disabled selected>Select Account Type</option>
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+        <option value="vip">VIP</option>
+      </select>
+      <input type="text" placeholder="Phone Number" required pattern="\d{10,15}" title="Enter a valid phone number"/>
+      <input type="text" placeholder="Country" required/>
+      <input type="text" placeholder="Address" required/>
+      <input type="text" placeholder="City" required/>
+      <input type="text" placeholder="State" required/>
+      <input type="text" placeholder="Zip Code" required pattern="\d{5,10}" title="Enter a valid zip code"/>
+      <input type="text" placeholder="Date of Birth (DD/MM/YYYY)" required pattern="\d{2}/\d{2}/\d{4}" title="Enter a valid date in DD/MM/YYYY format"/>
+      <input type="text" placeholder="How did you hear about us?" required/>
+      <input type="checkbox" required/> I confirm that I am over 18 years old
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+      <p>By signing up, you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      <p>TradeTitian is a registered trademark. All rights reserved.</p>
+
+    </form>
+    <div class="social-login">
+      <h3>Or sign up with</h3>
+          
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TradeTitian. All rights reserved.</p>
+  </footer>
+</body>
+</html>

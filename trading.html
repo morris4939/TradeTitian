@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trade - TradeTitian</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo">TradeTitian</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="account.html">Account</a>
+      <a href="deposit.html">Deposit</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <section class="trading">
+    <h2>Trading Interface</h2>
+    <div class="price-ticker">
+      <p>Symbol: <strong>EUR/USD</strong></p>
+      <p>Live Price: <strong id="live-price">1.0912</strong></p>
+    </div>
+
+    <form class="trading-form">
+      <label for="order-type">Order Type:</label>
+      <select id="order-type" name="order-type">
+        <option value="market">Market</option>
+        <option value="limit">Limit</option>
+      </select>
+
+      <label for="lot-size">Lot Size:</label>
+      <input type="number" id="lot-size" name="lot-size" placeholder="Enter lot size" required />
+
+      <label for="price">Price (for Limit Orders):</label>
+      <input type="number" id="price" name="price" placeholder="Enter price" disabled />
+
+      <div class="action-buttons">
+        <button type="submit" class="btn buy-btn">Buy</button>
+        <button type="submit" class="btn sell-btn">Sell</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TradeTitian. All rights reserved.</p>
+  </footer>
+</body>
+</html>

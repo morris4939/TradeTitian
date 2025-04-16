@@ -1,0 +1,63 @@
+<section class="form-section">
+  <h2>Deposit Funds</h2>
+  <form class="deposit-form">
+    <!-- Deposit Amount Section -->
+    <div class="form-group">
+      <label for="deposit-amount">Amount ($):</label>
+      <input type="number" id="deposit-amount" placeholder="Enter amount" required />
+    </div>
+
+    <!-- Payment Method Section -->
+    <div class="form-group">
+      <label for="deposit-method">Payment Method:</label>
+      <select id="deposit-method">
+        <option value="bank-transfer">Bank Transfer</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="crypto">Crypto</option>
+      </select>
+    </div>
+
+    <!-- Blockchain Deposit Addresses -->
+    <div class="blockchain-section">
+      <h3>Deposit Addresses by Blockchain</h3>
+
+      <!-- Bitcoin Section -->
+      <div class="blockchain-address">
+        <h4>Bitcoin (BTC)</h4>
+        <p id="btc-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
+        <button type="button" class="btn copy-btn" onclick="copyAddress('btc-address')">Copy BTC Address</button>
+      </div>
+
+      <!-- Ethereum Section -->
+      <div class="blockchain-address">
+        <h4>Ethereum (ETH)</h4>
+        <p id="eth-address">0x41821bd5eC38C215B87Ffty3D813aCD4e43b71f861</p>
+        <button type="button" class="btn copy-btn" onclick="copyAddress('eth-address')">Copy ETH Address</button>
+      </div>
+
+      <!-- Binance Smart Chain Section -->
+      <div class="blockchain-address">
+        <h4>Binance Smart Chain (BSC)</h4>
+        <p id="bsc-address">bnb1v9jxgun9x9x9x9x9x9x9x9x9x9x9x9x9x9</p>
+        <button type="button" class="btn copy-btn" onclick="copyAddress('bsc-address')">Copy BSC Address</button>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="form-buttons">
+      <button type="submit" class="btn">Deposit</button>
+      <button type="reset" class="btn reset-btn">Reset</button>
+      <button type="button" class="btn cancel-btn" onclick="cancelDeposit()">Cancel</button>
+    </div>
+  </form>
+</section>
+
+<!-- Additional Section: Deposit History -->
+<section class="deposit-history">
+  <h2>Deposit History</h2>
+  <ul>
+    <li>Deposit: $1,000 via Bank Transfer - 2025-04-01</li>
+    <li>Deposit: $500 via Crypto - 2025-03-28</li>
+    <li>Deposit: $200 via Credit Card - 2025-03-15</li>
+  </ul>
+</section>
